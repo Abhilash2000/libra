@@ -1012,3 +1012,7 @@ new_client.convolutional_query(
                 width=28,
                 epochs=12,
                 verbose=1)
+
+
+
+
