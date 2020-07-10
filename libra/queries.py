@@ -1000,5 +1000,11 @@ class client:
 
 from libra import client
 
+
+
 new_client = client('csv_file')
 new_client.convolutional_query('predict MNIST numbers')
+
+
+
+
