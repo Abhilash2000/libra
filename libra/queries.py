@@ -1001,4 +1001,4 @@ class client:
 from libra import client
 
 new_client = client('csv_file')
-client.convolutional_query('predict MNIST numbers')
+new_client.convolutional_query('predict MNIST numbers')
