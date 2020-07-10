@@ -1,3 +1,4 @@
+from libra import client
 from libra.query.nlp_queries import (image_caption_query,
                                      generate_caption, classify_text,
                                      text_classification_query, get_summary,
@@ -101,7 +102,8 @@ class client:
         nltk.download('averaged_perceptron_tagger', quiet=True)
 
     # param model_requested: string representation of the name of the model user seeks to retrieve
-    # returns models with a specific string - currently deprecated, should not be used.
+    # returns models with a specific string - currently deprecated, should not
+    # be used.
 
     def get_models(self, model_requested):
         '''
@@ -320,7 +322,7 @@ class client:
         :param callback_mode: The type of callback (str).
         :param maximizer: The accuracy/loss type to optimize (str).
         :param save_model: Save the model (bool).
-        :param save_path: Filepath of where to save the model (str).        
+        :param save_path: Filepath of where to save the model (str).
 
         :return: a model and information to along with it stored in the self.models dictionary.
         '''
@@ -361,7 +363,7 @@ class client:
                                 ):
         '''
         Calls the body of the kmeans_clustering code in the supplementaries.py file. Can be used without any preprocessing and/or parameters.
-        
+
         :param dataset: The dataset being used in the k-means clustering algorithm (str).
         :param scatters: A list of various types of scatter plots.
         :param preprocess: Preprocess the data (bool).
@@ -424,8 +426,8 @@ class client:
         :param gamma: Kernel coefficient (int).
         :param coef0: Significant term in 'poly' and 'sigmoid' kernel functions (float).
         :param max_iter: Maximum number of iterations the function will run (int).
-        
-        
+
+
         :return: a model and information to go along with it stored in the self.models dictionary.
         '''
 
@@ -477,7 +479,7 @@ class client:
         :param leaf_size: Leaf size passed to BallTree or KDTree (int).
         :param p: Power parameter for the Minkowski metric (int).
         :param algorithm: Algorithm used to compute the nearest neighbors (str).
-        
+
 
         :return: a model and information to along with it stored in the self.models dictionary.
         '''
@@ -535,7 +537,7 @@ class client:
         :param min_impurity_decrease: A node will be split if this split induces a decrease of the impurity greater than or equal
          to this value (float).
         :param ccp_alpha: Complexity parameter used for Minimal Cost-Complexity Pruning (float).
-        
+
 
         :return: a model and information to along with it stored in the self.models dictionary.
         '''
@@ -604,7 +606,7 @@ class client:
         :param directory: Path to the directory (str).
         :param verbose: Printing the logging information (int).
         :param test_size: Size of the testing set (float).
-        
+
 
         :return: an updated model and history stored in the models dictionary
         '''
@@ -664,7 +666,7 @@ class client:
         :param epochs: Number of epochs (int).
         :param height: Height of the input image (int).
         :param width: Width of the input image (int).
-        
+
 
         :return: an updated model and history stored in the models dictionary
         '''
@@ -726,7 +728,7 @@ class client:
         :param generate_plots: Generate plots for the model (bool).
         :param save_model: Save the model (bool).
         :param save_path: Filepath of where to save the model (str).
-        
+
 
         :return: an updated model and history stored in the models dictionary
         '''
@@ -788,7 +790,7 @@ class client:
         :param generate_plots: Generate plots for the model (bool).
         :param save_model: Save the model (bool).
         :param save_path: Filepath of where to save the model (str).
-        
+
 
         :return: an updated model and history stored in the models dictionary
         '''
@@ -858,7 +860,7 @@ class client:
         :param save_path_decoder: Filepath of where to save the decoder (str).
         :param save_model_encoder: Save the encoder (bool).
         :param save_path_encoder: Filepath of where to save the encoder (str).
-        
+
 
         :return: an updated model and history stored in the models dictionary
         '''
@@ -998,13 +1000,15 @@ class client:
         clearLog()
         analyze(self, model, save)
 
-from libra import client
-
-
 
 new_client = client('csv_file')
-new_client.convolutional_query('predict MNIST numbers')
-
-
-
-
+new_client.convolutional_query(
+                'predict MNIST numbers',
+                preprocess=True,
+                test_size=0.2,
+                augmentation=True,
+                new_folders=False,
+                height=28,
+                width=28,
+                epochs=12,
+                verbose=1)
