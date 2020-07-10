@@ -997,3 +997,8 @@ class client:
             model = self.latest_model
         clearLog()
         analyze(self, model, save)
+
+from libra import client
+
+new_client = client('csv_file')
+client.convolutional_query('predict MNIST numbers')
