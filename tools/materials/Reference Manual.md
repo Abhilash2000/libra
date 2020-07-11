@@ -832,6 +832,28 @@ plot_names: `[str, str,..., str]`
 
 Retrieves list of string representation or label names for plots generated 
 
+### elbow_cluster_plots ###
+
+```python
+libra.elbow_cluster_plots(inertia_stor, base_clusters)
+```
+
+
+*Parameters --*
+
+inertia_stor:
+
+
+
+base_clusters: 
+
+
+
+
+*Returns --*
+
+img:
+
 ### generate_regression_plots ###
 
 ``` python
