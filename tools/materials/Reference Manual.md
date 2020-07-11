@@ -1791,32 +1791,57 @@ libra.convolutional(instruction=None,
                     width=None)
 ```
 
+Generates/stores convolutional artificial neural network used to solve classification problem requests from written query sent to/in client class instance 
 
 *Parameters --*
 
 instruction: None (`str`) 
 
+String representation that is the instruction from a written query sent to/in the client class instance (is set by default to none)
+
 read_mode: None (`str`)
 
-preprocess: `True` (bool)
+String representation of type of preprocessing applied based on file directory structure of image dataset (is set by default to none/preprocessing will automatically assess dataset to determine correct type)
+
+preprocess: True (bool)
+
+Boolean representation of option to preprocess data used by the model (is set by default to true) 
 
 verbose: 0 (`int`)
 
+Integer number indicating extent of information sent to user by logging function regarding model (is set by default to 0/minimal information is provided)
+
 dath_path: `os.getcwd()` (`str`)
 
-new_folders: `True` (`bool`)
+String representation of the file directory path that contains the image datasets (is set by default to current working directory)
+
+new_folders: True (`bool`)
+
+Boolean representation of option to create unique folders containing newly resized images (is set by default to true/only applies if read_mode parameter is set to 'setwise'/setting to false results in replacement of existing images in existing folders with resized images)
 
 image_column: None (`str`)
 
+String representation of name of column in data containing paths to images in dataset (is set by default to none/only applies if read_mode parameter is set to 'csvwise')
+
 training_ratio: 0.8 (`float`)
 
-augmentation: `True` (`bool`)
+Float number of ratio of training data to whole in train/test split of dataset (is set by default to 0.8)
+
+augmentation: True (`bool`)
+
+Boolean representation of option to introduce alterations/noise to images in dataset prior to training of model (is set by default to true)
 
 epochs: 10 (`int`)
 
+Integer number of full cycles used for model fitting/training on the training dataset (is set by default to 10)
+
 height: None (`int`)
 
+Integer number indicating vertical length to resize associated dimension to in images in dataset (is set by default to none/resizes images to median vertical length)
+
 width: None (`int`)
+
+Integer number indicating horizontial breadth to resize associated dimension to in images in dataset (is set by default to none/resizes images to median horizontial breadth)
 
 
 *Returns --*
@@ -2079,11 +2104,11 @@ Generates feed-forward artificial neural network model used to solve only regres
 
 instruction: `str`
 
-String that is the instruction from a written query sent to/in the client class instance
+String representation that is the instruction from a written query sent to/in the client class instance
 
 preprocess: True (`bool`)
 
-Option to preprocess the data used by the model (is set by default to true)
+Boolean representtion of option to preprocess the data used by the model (is set by default to true)
 
 callback_mode: "min" (`str`)
 
@@ -2091,7 +2116,7 @@ String representing type of saving mechanism for multiple epochs of training of 
 
 drop: None (`str`)
 
-Option to drop any columns during analysis of data (is set by default is set to None)
+String representation of option to drop any columns during analysis of data (is set by default is set to None)
 
 random_state: 49 (`int`)
 
