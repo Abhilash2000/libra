@@ -1713,6 +1713,8 @@ save_path:
   'training_loss': final_hist.history['loss'],
   'val_loss': final_hist.history['val_loss']}}`: {} 
 
+Retrieves
+
 ### classification_ann ###
 
 ```python
@@ -1722,21 +1724,119 @@ libra.classification_ann()
 
 *Parameters --*
 
+instruction:
+
+callback:
+
+dataset:
+
+text:
+
+ca_threshold:
+
+preprocess:
+
+callback_mode:
+
+drop:
+
+random_state:
+
+test_size:
+
+epochs:
+
+generate_plots:
+
+maximizer:
+
+save_model:
+
+save_path:
+
 
 *Returns --*
 
+`{'id': generate_id(),
+  "model": final_model,
+  'num_classes': num_classes,
+  "plots": plots,
+  "target": remove,
+  "preprocesser": full_pipeline,
+  "interpreter": one_hot_encoder,
+  'test_data': {'X': X_test, 'y': y_test},
+  'losses': {
+  'training_loss': final_hist.history['loss'],
+  'val_loss': final_hist.history['val_loss']},
+  'accuracy': {
+  'training_accuracy': final_hist.history['accuracy'],
+  'validation_accuracy': final_hist.history['val_accuracy']}}`: {} 
+  
+Retrieves
 
 ### convolutional ###
 
 ```python
-libra.convolutional()
+libra.convolutional(instruction=None,
+                    read_mode=None,
+                    preprocess=True,
+                    verbose=0,
+                    dath_path=os.getcwd(),
+                    new_folders=True,
+                    image_column=None,
+                    training_ratio=0.8,
+                    augmentation=True,
+                    epochs=10,
+                    height=None,
+                    width=None)
 ```
 
 
 *Parameters --*
 
+instruction:
+
+read_mode:
+
+preprocess:
+
+verbose:
+
+dath_path:
+
+new_folders:
+
+image_column:
+
+training_ratio:
+
+augmentation:
+
+epochs:
+
+height:
+
+width:
+
 
 *Returns --*
+
+`return {'id': generate_id(),
+        'data_type': read_mode,
+        'data_path': data_path,
+        'data': {'train': X_train, 'test': X_test},
+        'shape': input_shape,
+        "model": model,
+        'losses': {
+        'training_loss': history.history['loss'],
+        'val_loss': history.history['val_loss']},
+        'accuracy': {
+        'training_accuracy': history.history['accuracy'],
+        'validation_accuracy': history.history['val_accuracy']},
+        'num_classes': (2 if num_classes == 1 else num_classes),
+        'data_sizes': {'train_size': processInfo['train_size'], 'test_size': processInfo['test_size']}}`:
+
+Retrieves
 
 ***
 
