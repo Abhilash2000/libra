@@ -1713,7 +1713,7 @@ save_path:
   'training_loss': final_hist.history['loss'],
   'val_loss': final_hist.history['val_loss']}}`: {} 
 
-Retrieves
+Retrieves 
 
 ### classification_ann ###
 
@@ -1836,7 +1836,7 @@ width: None (`int`)
    'num_classes': (2 if num_classes == 1 else num_classes),
    'data_sizes': {'train_size': processInfo['train_size'], 'test_size': processInfo['test_size']}}`:
 
-Retrieves
+Retrieves model dictionary containing generated model id, description of type of preprocessing on image data, path where image data is stored, dictionary comprised of testing/training datasets folders, standardized dimensions of images, historical trend plots of loss functions, historical trend plots of training/testing accuracies, number of classes for model, and number of total images in training/testing datasets
 
 ***
 
