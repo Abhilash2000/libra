@@ -112,6 +112,9 @@ Table of Contents
   * [dimensionality_ICA](#dimensionality_ICA)
   * [get_last_file](#get_last_file)
 * [feedforward_nn.py](#feedforward_nn)
+  * [regression_ann](#regression_ann)
+  * [classification_ann](#classification_ann)
+  * [convolutional](#convolutional)
 * [nlp_queries.py](#nlp_queries)
 * [supplementaries.py](#supplementaries)
 * [predictionQueries.py](#predictionQueries)
@@ -1642,6 +1645,98 @@ libra.get_last_file()
 ***
 
 ## feedforward_nn ##
+
+### regression_ann ###
+
+```python
+libra.regression_ann(instruction, 
+                     callback=False,
+                     ca_threshold=None,
+                     text=[],
+                     dataset=None,
+                     drop=None,
+                     preprocess=True,
+                     test_size=0.2,
+                     random_state=49,
+                     epochs=50,
+                     generate_plots=True,
+                     callback_mode='min',
+                     maximizer="val_loss",
+                     save_model=False,
+                     save_path=os.getcwd())
+```
+
+
+*Parameters --*
+
+instruction:
+
+callback:
+
+ca_threshold:
+
+text:
+
+dataset:
+
+drop:
+
+preprocess:
+
+test_size:
+
+random_state:
+
+epochs:
+
+generate_plots:
+
+callback_mode:
+
+maximizer:
+
+save_model:
+
+save_path:
+
+
+*Returns --*
+
+`{'id': generate_id(),
+  'model': final_model,
+  "target": target,
+  "plots": plots,
+  "preprocesser": full_pipeline,
+  "interpreter": target_scaler,
+  'test_data': {'X': X_test, 'y': y_test},
+  'losses': {
+  'training_loss': final_hist.history['loss'],
+  'val_loss': final_hist.history['val_loss']}}`: {} 
+
+### classification_ann ###
+
+```python
+libra.classification_ann()
+```
+
+
+*Parameters --*
+
+
+*Returns --*
+
+
+### convolutional ###
+
+```python
+libra.convolutional()
+```
+
+
+*Parameters --*
+
+
+*Returns --*
 
 ***
 
