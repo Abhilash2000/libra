@@ -1794,47 +1794,47 @@ libra.convolutional(instruction=None,
 
 *Parameters --*
 
-instruction:
+instruction: None (`str`) 
 
-read_mode:
+read_mode: None (`str`)
 
-preprocess:
+preprocess: `True` (bool)
 
-verbose:
+verbose: 0 (`int`)
 
-dath_path:
+dath_path: `os.getcwd()` (`str`)
 
-new_folders:
+new_folders: `True` (`bool`)
 
-image_column:
+image_column: None (`str`)
 
-training_ratio:
+training_ratio: 0.8 (`float`)
 
-augmentation:
+augmentation: `True` (`bool`)
 
-epochs:
+epochs: 10 (`int`)
 
-height:
+height: None (`int`)
 
-width:
+width: None (`int`)
 
 
 *Returns --*
 
-`return {'id': generate_id(),
-        'data_type': read_mode,
-        'data_path': data_path,
-        'data': {'train': X_train, 'test': X_test},
-        'shape': input_shape,
-        "model": model,
-        'losses': {
-        'training_loss': history.history['loss'],
-        'val_loss': history.history['val_loss']},
-        'accuracy': {
-        'training_accuracy': history.history['accuracy'],
-        'validation_accuracy': history.history['val_accuracy']},
-        'num_classes': (2 if num_classes == 1 else num_classes),
-        'data_sizes': {'train_size': processInfo['train_size'], 'test_size': processInfo['test_size']}}`:
+`{'id': generate_id(),
+   'data_type': read_mode,
+   'data_path': data_path,
+   'data': {'train': X_train, 'test': X_test},
+   'shape': input_shape,
+   "model": model,
+   'losses': {
+   'training_loss': history.history['loss'],
+   'val_loss': history.history['val_loss']},
+   'accuracy': {
+   'training_accuracy': history.history['accuracy'],
+   'validation_accuracy': history.history['val_accuracy']},
+   'num_classes': (2 if num_classes == 1 else num_classes),
+   'data_sizes': {'train_size': processInfo['train_size'], 'test_size': processInfo['test_size']}}`:
 
 Retrieves
 
