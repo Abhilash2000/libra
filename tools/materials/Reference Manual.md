@@ -104,6 +104,8 @@ Table of Contents
   * [save_image](#save_image)
   * [calculate_medians](#calculate_medians)
   * [process_color_channel](#process_color_channel)
+  * [set_distinguisher](#set_distinguisher)
+  * [already_processed](#already_processed)
 * [classification_models.py](#classification_models)
 * [dimensionality_red_queries.py](#dimensionality_red_queries)
   * [dimensionality_reduc](#dimensionality_reduc)
@@ -1553,20 +1555,99 @@ libra.generate_caption_helper(image, decoder, encoder, tokenizer, image_features
 ### setwise_preprocessing ###
 
 ``` python
-libra.setwise_preprocessing(data_path, new_folder=True)
+libra.setwise_preprocessing(data_path, new_folder, height, width)
 ```
 
-### setwise_preprocessing ###
+
+*Parameters --*
+
+dath_path:
+
+new_folder:
+
+height:
+
+width:
+
+
+*Returns --*
+
+`{"num_categories": classification,
+  "height": height,
+  "width": width,
+  "train_size": data_size[0],
+  "test_size": data_size[1]}`: `{}`
+  
+Retrieves
+
+### csv_preprocessing ###
 
 ``` python
-libra.pathwise_preprocessing(csv_file, dath_paths, label, image_column, training_ratio)
+libra.pathwise_preprocessing(csv_file,
+                             data_path,
+                             instruction,
+                             image_column,
+                             training_ratio,
+                             height,
+                             width)
 ```
 
-### setwise_preprocessing ###
+
+
+*Parameters --*
+
+csv_file:
+
+dath_path:
+
+instruction:
+
+image_column:
+
+training_ratio:
+
+height:
+
+width:
+
+
+*Returns --*
+
+`{"num_categories": len(classifications),
+  "height": height,
+  "width": width,
+  "train_size": data_size[0],
+  "test_size": data_size[1]}`: `{}`
+
+Retrieves
+
+### classwise_preprocessing ###
 
 ``` python
-libra.classwise_preprocessing(data_path, training_ratio)
+libra.classwise_preprocessing(data_path, training_ratio, height, width)
 ```
+
+
+*Parameters --*
+
+dath_path:
+
+training_ratio:
+
+height:
+
+width:
+
+
+*Returns --*
+
+`{"num_categories": num_classifications,
+  "height": height,
+  "width": width,
+  "train_size": data_size[0],
+  "test_size": data_size[1]}: `{}`
+  
+Retrieves
 
 ### process_class_folders ###
 
@@ -1574,11 +1655,54 @@ libra.classwise_preprocessing(data_path, training_ratio)
 libra.process_class_folder(data_path)
 ```
 
+*Parameters --*
+
+dath_path:
+
+
+*Returns --*
+
+`[heights, widths, num_classifications, img_dict]`: `[]`
+
+Retrieves
+
+### add_resized_images ###
+
+```python
+libra.add_resized_images(data_path, folder_name, images)
+```
+
+
+*Parameters --*
+
+dath_path: 
+
+folder_path:
+
+images:
+
+
+*Returns --*
+
+None
+
 ### replace_images ###
 
 ``` python
 libra.replace_images(data_path, loaded_shape)
 ```
+
+
+*Parameters --*
+
+dath_path:
+
+loaded_shape:
+
+
+*Returns --*
+
+None
 
 ### create_folder ###
 
@@ -1586,11 +1710,39 @@ libra.replace_images(data_path, loaded_shape)
 libra.create_folder(path, folder_name)
 ```
 
+
+*Parameters --*
+
+path:
+
+folder_name:
+
+
+*Returns --*
+
+None
+
 ### save_image ###
 
 ``` python
 libra.save_image(path, img, img_name, classification)
 ```
+
+
+*Parameters --*
+
+path:
+
+img:
+
+img_name:
+
+classification:
+
+
+*Returns --*
+
+None
 
 ### calculate_medians ###
 
@@ -1598,11 +1750,83 @@ libra.save_image(path, img, img_name, classification)
 libra.calculate_medians(heights, widths)
 ```
 
+
+
+*Parameters --*
+
+heights:
+
+widths:
+
+
+*Returns --*
+
+height, width: `[]`
+
+Retrieves
+
 ### process_color_channel ###
 
 ``` python
 libra.process_color_channel(img, height, width)
 ```
+
+
+*Parameters --*
+
+img:
+
+height:
+
+width:
+
+
+*Returns --*
+
+`cv2.merge(chanels)`:
+
+Retrieves
+
+### set_distinguisher ###
+
+```python
+libra.set_distinguisher(data_path, read_mode)
+```
+
+
+*Parameters --*
+
+dath_path:
+
+read_mode:
+
+
+*Returns --*
+
+`{"read_mode": "classwise"}`: `{}`
+
+Retrieves
+
+### already_processed ###
+
+```python
+libra.already_processed(data_path)
+```
+
+
+*Parameters --*
+
+`{"read_mode": "classwise"}`: `{}`
+
+*Returns --*
+
+`{"num_categories": num_categories[0],
+  "height": height,
+  "width": width,
+  "train_size": sizes[0],
+  "test_size": sizes[1]}`: `{}`
+  
+Retrieves
 
 ***
 
