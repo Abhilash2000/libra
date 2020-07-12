@@ -1561,13 +1561,13 @@ libra.setwise_preprocessing(data_path, new_folder, height, width)
 
 *Parameters --*
 
-dath_path:
+dath_path: `str`
 
-new_folder:
+new_folder: `bool`
 
-height:
+height: `int`
 
-width:
+width: `int`
 
 
 *Returns --*
@@ -1596,19 +1596,19 @@ libra.pathwise_preprocessing(csv_file,
 
 *Parameters --*
 
-csv_file:
+csv_file: `str`
 
-dath_path:
+dath_path: `str`
 
-instruction:
+instruction: `str`
 
-image_column:
+image_column: `str`
 
-training_ratio:
+training_ratio: `float`
 
-height:
+height: `int`
 
-width:
+width: `int`
 
 
 *Returns --*
@@ -1630,13 +1630,13 @@ libra.classwise_preprocessing(data_path, training_ratio, height, width)
 
 *Parameters --*
 
-dath_path:
+dath_path: `str`
 
-training_ratio:
+training_ratio: `float`
 
-height:
+height: `int`
 
-width:
+width: `int`
 
 
 *Returns --*
@@ -1645,7 +1645,7 @@ width:
   "height": height,
   "width": width,
   "train_size": data_size[0],
-  "test_size": data_size[1]}: `{}`
+  "test_size": data_size[1]}`: `{}`
   
 Retrieves
 
@@ -1657,7 +1657,7 @@ libra.process_class_folder(data_path)
 
 *Parameters --*
 
-dath_path:
+dath_path: `str`
 
 
 *Returns --*
@@ -1675,11 +1675,11 @@ libra.add_resized_images(data_path, folder_name, images)
 
 *Parameters --*
 
-dath_path: 
+dath_path: `str`
 
-folder_path:
+folder_name: `str`
 
-images:
+images: `str`
 
 
 *Returns --*
@@ -1695,9 +1695,9 @@ libra.replace_images(data_path, loaded_shape)
 
 *Parameters --*
 
-dath_path:
+dath_path: `str`
 
-loaded_shape:
+loaded_shaped: `{}`
 
 
 *Returns --*
@@ -1713,9 +1713,9 @@ libra.create_folder(path, folder_name)
 
 *Parameters --*
 
-path:
+path: `str`
 
-folder_name:
+folder_name: `str`
 
 
 *Returns --*
@@ -1731,13 +1731,13 @@ libra.save_image(path, img, img_name, classification)
 
 *Parameters --*
 
-path:
+path: `str`
 
-img:
+img: `numpy.array`
 
-img_name:
+img_name: `str`
 
-classification:
+classification: `str`
 
 
 *Returns --*
@@ -1754,14 +1754,14 @@ libra.calculate_medians(heights, widths)
 
 *Parameters --*
 
-heights:
+heights: `[int, int,..., int]`
 
-widths:
+widths: `[int, int,..., int]`
 
 
 *Returns --*
 
-height, width: `[]`
+height, width: `[int]`
 
 Retrieves
 
@@ -1774,16 +1774,16 @@ libra.process_color_channel(img, height, width)
 
 *Parameters --*
 
-img:
+img: `numpy.array`
 
-height:
+height: `int`
 
-width:
+width: `int`
 
 
 *Returns --*
 
-`cv2.merge(chanels)`:
+`cv2.merge(chanels)`: `numpy.array`
 
 Retrieves
 
@@ -1796,9 +1796,9 @@ libra.set_distinguisher(data_path, read_mode)
 
 *Parameters --*
 
-dath_path:
+dath_path: `str`
 
-read_mode:
+read_mode: `str`
 
 
 *Returns --*
@@ -1816,7 +1816,8 @@ libra.already_processed(data_path)
 
 *Parameters --*
 
-`{"read_mode": "classwise"}`: `{}`
+dath_path: `str`
+
 
 *Returns --*
 
