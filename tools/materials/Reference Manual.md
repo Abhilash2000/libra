@@ -1558,16 +1558,26 @@ libra.generate_caption_helper(image, decoder, encoder, tokenizer, image_features
 libra.setwise_preprocessing(data_path, new_folder, height, width)
 ```
 
+Preprocesses images in data initialized in client class instance to achieve standardized format and specifies directory structure to store training/testing datasets (applies when present data directory already contains training/testing folder)
 
+/
 *Parameters --*
 
 dath_path: `str`
 
+String representation of the local file directory path containing the training and testing data
+
 new_folder: `bool`
+
+Boolean representation of option to create new folder storing processed training and testing data
 
 height: `int`
 
+Integer number indicating vertical length to resize associated dimension to in images in dataset (is set by default to none/resizes images to median vertical length)
+
 width: `int`
+
+Integer number indicating horizontial breadth to resize associated dimension to in images in dataset (is set by default to none/resizes images to median horizontial breadth)
 
 
 *Returns --*
@@ -1578,7 +1588,7 @@ width: `int`
   "train_size": data_size[0],
   "test_size": data_size[1]}`: `{}`
   
-Retrieves
+Retrieves dictionary containing number of categories associated with training/testing data, height/width dimensions of images in training/testing data, and amount of images stored in training/testing data
 
 ### csv_preprocessing ###
 
@@ -1592,23 +1602,38 @@ libra.pathwise_preprocessing(csv_file,
                              width)
 ```
 
+Preprocesses images in data initialized in client class instance to achieve standardized format and specifies directory structure to store training/testing datasets (applies when present data directory already contains csv file comprised of image hyperlinks)
 
 
 *Parameters --*
 
 csv_file: `str`
 
+String representation of the csv extension file path containing the training and testing data
+
 dath_path: `str`
+
+String representation of the local file directory path containing the training and testing data
 
 instruction: `str`
 
+String representation that is the instruction identifying the label of column containing image hyperlinks in the csv file from a written query sent to/in the client class instance (is set by default to none)
+
 image_column: `str`
+
+String representation of the title of the column containing the image hyperlinks in the csv file 
 
 training_ratio: `float`
 
+Float number of ratio of training data to whole in train/test split of dataset (is set by default to 0.8)
+
 height: `int`
 
+Integer number indicating vertical length to resize associated dimension to in images in dataset (is set by default to none/resizes images to median vertical length)
+
 width: `int`
+
+Integer number indicating horizontial breadth to resize associated dimension to in images in dataset (is set by default to none/resizes images to median horizontial breadth)
 
 
 *Returns --*
@@ -1619,7 +1644,7 @@ width: `int`
   "train_size": data_size[0],
   "test_size": data_size[1]}`: `{}`
 
-Retrieves
+Retrieves dictionary containing number of categories associated with labels noted in classification folder alongside the training/testing data, vertical/horizontial dimensions of images in training/testing data, and amount of mages stored in training/testing data
 
 ### classwise_preprocessing ###
 
@@ -1627,16 +1652,25 @@ Retrieves
 libra.classwise_preprocessing(data_path, training_ratio, height, width)
 ```
 
+Preprocesses images in data initialized in client class instance to achieve standardized format and specifies directory structure to store training/testing datasets (applies when present data directory does not already contain a csv file with image hyperlinks or existing training/testing folder)
 
 *Parameters --*
 
 dath_path: `str`
 
+String representation of the local file directory path containing the training and testing data
+
 training_ratio: `float`
+
+Float number of ratio of training data to whole in train/test split of dataset (is set by default to 0.8)
 
 height: `int`
 
+Integer number indicating vertical length to resize associated dimension to in images in dataset (is set by default to none/resizes images to median vertical length)
+
 width: `int`
+
+Integer number indicating horizontial breadth to resize associated dimension to in images in dataset (is set by default to none/resizes images to median horizontial breadth)
 
 
 *Returns --*
@@ -1647,7 +1681,7 @@ width: `int`
   "train_size": data_size[0],
   "test_size": data_size[1]}`: `{}`
   
-Retrieves
+Retrieves dictionary containing number of categories associated with training/testing data, vertical/horizontial dimensions of images in training/testing data, and amount of images stored in training/testing data
 
 ### process_class_folders ###
 
@@ -1655,16 +1689,19 @@ Retrieves
 libra.process_class_folder(data_path)
 ```
 
+Processes images stored in classification folders used to generate training/testing datasets
+
 *Parameters --*
 
 dath_path: `str`
 
+String representation of the local file directory path containing the training and testing data
 
 *Returns --*
 
 `[heights, widths, num_classifications, img_dict]`: `[]`
 
-Retrieves
+Retrieves list containing the vertical/horizontial dimensions of images in dataset, number of categories associated with training/testing data, and dictionary consisting of string representation of keys of names of classifications and array representation of values of affiliated classification images
 
 ### add_resized_images ###
 
@@ -1672,19 +1709,28 @@ Retrieves
 libra.add_resized_images(data_path, folder_name, images)
 ```
 
+Generates new file directory path to store processed images
 
 *Parameters --*
 
 dath_path: `str`
 
+String representation of the local file directory path containing the training and testing data
+
 folder_name: `str`
 
-images: `str`
+String representation of the folder name extension seeking to be created by the user
+
+images: `{str: numpy.array, ..., str: numpy.array}`
+
+Dictionary containing the string representation of keys of images names and array representation of values of affiliated images
 
 
 *Returns --*
 
 None
+
+Executes code to construct folder for processed images and iterates over images to append them to processed folder
 
 ### replace_images ###
 
