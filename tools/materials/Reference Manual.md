@@ -1719,7 +1719,7 @@ String representation of the local file directory path containing the training a
 
 folder_name: `str`
 
-String representation of the folder name extension seeking to be created by the user
+String representation of the folder name extension the user seeks to create
 
 images: `{str: numpy.array, ..., str: numpy.array}`
 
@@ -1743,12 +1743,17 @@ libra.replace_images(data_path, loaded_shape)
 
 dath_path: `str`
 
+String representation of the local file directory path containing the training and testing data
+
 loaded_shaped: `{}`
 
+Dictionary containing the string representation of keys of images names and array representation of values of affiliated images
 
 *Returns --*
 
 None
+
+Executes code to
 
 ### create_folder ###
 
@@ -1761,8 +1766,11 @@ libra.create_folder(path, folder_name)
 
 path: `str`
 
+String representation of the local file directory path user seeks to create
+
 folder_name: `str`
 
+String representation of the folder name extension user seeks to create
 
 *Returns --*
 
@@ -1779,16 +1787,26 @@ libra.save_image(path, img, img_name, classification)
 
 path: `str`
 
+String representation of the local file directory path user seeks to save processed images to
+
 img: `numpy.array`
+
+Array representation of the image specified by the user
 
 img_name: `str`
 
+String representation of the image file extension name used to specify the image
+
 classification: `str`
+
+String representation of the classification folder the image would reside in
 
 
 *Returns --*
 
 None
+
+Executes
 
 ### calculate_medians ###
 
@@ -1802,14 +1820,18 @@ libra.calculate_medians(heights, widths)
 
 heights: `[int, int,..., int]`
 
+List of integer numbers of vertical dimensions of all images stored in data 
+
 widths: `[int, int,..., int]`
+
+List of integer numbers of horizontial dimensions of all images stored in data 
 
 
 *Returns --*
 
 height, width: `[int]`
 
-Retrieves
+Retrieves seperate lists consisting of median integer values of horizontial/vertical dimensions aggregated across all images
 
 ### process_color_channel ###
 
@@ -1822,10 +1844,15 @@ libra.process_color_channel(img, height, width)
 
 img: `numpy.array`
 
+Array representation of the image specified by the user
+
 height: `int`
+
+Integer number indicating vertical length to resize associated dimension to in images in dataset (is set by default to none/resizes images to median vertical length)
 
 width: `int`
 
+Integer number indicating horizontial breadth to resize associated dimension to in images in dataset (is set by default to none/resizes images to median horizontial breadth)
 
 *Returns --*
 
@@ -1844,14 +1871,17 @@ libra.set_distinguisher(data_path, read_mode)
 
 dath_path: `str`
 
+String representation of the local file directory path containing the training and testing data
+
 read_mode: `str`
 
+String representation of type of preprocessing applied based on file directory structure of image dataset
 
 *Returns --*
 
 `{"read_mode": "classwise"}`: `{}`
 
-Retrieves
+Retrieves dictionary
 
 ### already_processed ###
 
@@ -1864,6 +1894,8 @@ libra.already_processed(data_path)
 
 dath_path: `str`
 
+String representation of the local file directory path containing the training and testing data
+
 
 *Returns --*
 
@@ -1873,7 +1905,7 @@ dath_path: `str`
   "train_size": sizes[0],
   "test_size": sizes[1]}`: `{}`
   
-Retrieves
+Retrieves dictionary containing number of categories associated with training/testing data, height/width dimensions of images in training/testing data, and amount of images stored in training/testing data
 
 ***
 
